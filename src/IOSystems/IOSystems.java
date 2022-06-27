@@ -33,7 +33,8 @@ public class IOSystems {
 		} catch (FileNotFoundException e) {
 			System.err.println(e.getMessage());
 		} catch (RuntimeException | IOException e2) {
-			System.err.println(e2);
+//			System.err.println(e2);
+			e2.printStackTrace();
 		}
 
 	}
