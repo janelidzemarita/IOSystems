@@ -19,10 +19,10 @@ public class IOSystems {
 	static PrintStream so = System.out;
 
 	public static void main(String[] args) throws IOException {
-		
-		getMonthIndex(args); //task 5 check   use First letter uppercase and the rest lowercase;
-		
-		try {  //task 4 catching exceptions from task 3
+
+		getMonthIndex(args); // task 5 check use First letter uppercase and the rest lowercase;
+
+		try { // task 4 catching exceptions from task 3
 			FileInputStream is = new FileInputStream("D:\\TBC_Academy\\IOSystems\\src\\IOSystems\\InputFileText");
 			String txt = "UTF-8";
 
@@ -37,32 +37,57 @@ public class IOSystems {
 		}
 
 	}
+
 	public static void getMonthIndex(String[] args) {
-		switch(args[0]) {
-		case "January": so.println("odd position"); break;
-		case "February": so.println("even position"); break;
-		case "March": so.println("odd position"); break;
-		case "April": so.println("even position"); break;
-		case "May": so.println("odd position"); break;
-		case "June": so.println("even position"); break;
-		case "July": so.println("odd position"); break;
-		case "August": so.println("even position"); break;
-		case "September": so.println("odd position"); break;
-		case "October": so.println("even position"); break;
-		case "November": so.println("odd position"); break;
-		case "December": so.println("even position"); break;
-		default: System.err.println("Error!!!!") ;
+		switch (args[0]) {
+		case "January":
+			so.println("odd position");
+			break;
+		case "February":
+			so.println("even position");
+			break;
+		case "March":
+			so.println("odd position");
+			break;
+		case "April":
+			so.println("even position");
+			break;
+		case "May":
+			so.println("odd position");
+			break;
+		case "June":
+			so.println("even position");
+			break;
+		case "July":
+			so.println("odd position");
+			break;
+		case "August":
+			so.println("even position");
+			break;
+		case "September":
+			so.println("odd position");
+			break;
+		case "October":
+			so.println("even position");
+			break;
+		case "November":
+			so.println("odd position");
+			break;
+		case "December":
+			so.println("even position");
+			break;
+		default:
+			System.err.println("Error!!!!");
 		}
 	}
 
 	// for this function I created a new file where the read characters are written
 	// (evey line)
-	//task 3 (was task 1 from previous assignment
-	public static void Task1Function(InputStream is, String encoding) throws IOException {  
-		
+	// task 3 (was task 1 from previous assignment
+	public static void Task1Function(InputStream is, String encoding) throws IOException {
+
 		try (BufferedInputStream bf = new BufferedInputStream(is);
 				BufferedReader read = new BufferedReader(new InputStreamReader(bf, encoding));) {
-
 			String line = read.readLine();
 			while (line != null) {
 				so.println(line);
@@ -70,11 +95,11 @@ public class IOSystems {
 			}
 		}
 	}
-	//task 3 (was task 2 from previous assignment
+
+	// task 3 (was task 2 from previous assignment
 	public static void Task2Function(OutputStream os, String text, String encoding) throws IOException {
 		try (OutputStreamWriter sOut = new OutputStreamWriter(os, Charset.forName(encoding));
 				BufferedWriter bf = new BufferedWriter(sOut);) {
-			
 			bf.write(text);
 		}
 	}
