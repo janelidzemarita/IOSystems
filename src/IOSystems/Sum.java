@@ -5,35 +5,49 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Sum {
+	
+	static Scanner sc = new Scanner(System.in);
+	static PrintStream so = System.out;
 
 	public static void main(String[] args) throws IOException {
-		sum();
+		sumScanner();
+		
 
 	}
 
-	public static void sum() throws IOException {
-		Scanner sc = new Scanner(System.in);
-		PrintStream so = System.out;
-		PrintStream er = System.err;
-		int number = 0;
+	public static void sumScanner() throws IOException {
+		Integer number = 0;
+		String data = "";
 		so.println("Hello SUM!");
-		while (!("end".equals(sc.next()))) {
-			if(isInt(sc)) {
-				System.out.println("Enter whole number: ");
-				number += sc.nextInt();
-			} else {
-				er.println("Incorrect whole number value");
-			}
+		so.println("Enter whole number: ");
+		while(true) {
+			data = sc.next();
+			if(isValidScanner(sc, data)) {
+				number += Integer.parseInt(data);
+				so.println("Sum is: " + number);
+				so.println("Enter whole number: ");
+			}else if(!"end".equals(data)){
+				System.err.println("Incorrect  whole number value");
+			}else break;
+			
 		}
-		so.println("Total SUM: " + number);
 		sc.close();
 		so.println("Bye SUM!");
 	}
 
-	public static boolean isInt(Scanner s) {
-		if (s.hasNextInt()) {
-			return true;
-		} 
+	public static boolean isValidScanner(Scanner s, String str) {
+		try {
+			if (s.hasNextInt()) {
+				if(Integer.parseInt(str) >= 0) {
+					return true;
+				}else return false;
+			}
+		}catch (NumberFormatException e) {
+			return false;
+		}
 		return false;
 	}
+	
+	
+	
 }
