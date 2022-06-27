@@ -31,6 +31,7 @@ public class SumConsole {
 			String str = read.readLine();
 			while (str != null) { // read file until you find username (or end)
 				if (!str.equals(username)) { // check if you found username
+					read.readLine();
 					str = read.readLine();
 				} else if (str.equals(username)) {
 					str = read.readLine();
